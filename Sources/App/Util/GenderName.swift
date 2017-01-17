@@ -22,15 +22,15 @@ struct GenderName {
     // MARK: Private helpers to determine gender from name
 
     private func isMale(_ name: String) -> Bool {
-        return Names.getMaleNames().contains(name)
+        return MaleNames.containsName(name)
     }
 
     private func isFemale(_ name: String) -> Bool {
-        return Names.getFemaleNames().contains(name)
+        return FemaleNames.containsName(name)
     }
 
     private func isBoth(_ name: String) -> Bool {
-        return Names.getBothNames().contains(name)
+        return BothNames.containsName(name)
     }
 }
 
