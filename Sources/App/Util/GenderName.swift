@@ -3,7 +3,7 @@ import HTTP
 
 struct GenderName {
     var name: String!
-    
+
     var gender: Gender! {
         if isMale(name) {
             return .male
@@ -14,17 +14,21 @@ struct GenderName {
         }
         return .unknown
     }
-    
+
+    init(_ name: String!) {
+        self.name = name
+    }
+
     // MARK: Private helpers to determine gender from name
-    
+
     private func isMale(_ name: String) -> Bool {
         return Names.getMaleNames().contains(name)
     }
-    
+
     private func isFemale(_ name: String) -> Bool {
         return Names.getFemaleNames().contains(name)
     }
-    
+
     private func isBoth(_ name: String) -> Bool {
         return Names.getBothNames().contains(name)
     }
@@ -35,10 +39,10 @@ struct GenderName {
 extension GenderName: ResponseRepresentable {
     func makeResponse() throws -> Response {
         let json = try JSON(node: [
-            "name": name,
-            "gender": gender.string
+                "name": name,
+                "gender": gender.string
         ])
-        
+
         return try json.makeResponse()
     }
 }
