@@ -3,6 +3,6 @@ import Vapor
 
 final class GenderController {
     func getGender(_ req: Request, _ name: String) throws -> ResponseRepresentable {
-        return "Hello, \(name)"
+        return GenderName(name)
     }
 }
