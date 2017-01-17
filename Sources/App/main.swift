@@ -2,6 +2,7 @@ import Vapor
 
 let drop = Droplet()
 
-drop.get { request in request.description }
+let genderController = GenderController()
+drop.get("gender", String.self, handler: genderController.getGender)
 
 drop.run()
