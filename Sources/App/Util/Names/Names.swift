@@ -11,6 +11,6 @@ class Names {
 extension String {
     var uppercaseFirst: String {
         let first = String(characters.prefix(1))
-        return first.uppercased() + String(characters.dropFirst())
+        return first.uppercased() + String(self.lowercased().characters.dropFirst())
     }
 }
