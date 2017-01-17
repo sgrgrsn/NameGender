@@ -38,11 +38,13 @@ struct GenderName {
 
 extension GenderName: ResponseRepresentable {
     func makeResponse() throws -> Response {
-        let json = try JSON(node: [
+        return try getJSON().makeResponse()
+    }
+
+    func getJSON() throws -> JSON {
+        return try JSON(node: [
                 "name": name,
                 "gender": gender.string
         ])
-
-        return try json.makeResponse()
     }
 }
