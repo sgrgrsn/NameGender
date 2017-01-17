@@ -1,5 +1,5 @@
-class FemaleNames {
-    class func getNames() -> [String] {
+class FemaleNames: Names {
+    override class func getNames() -> [String] {
         return [
                 "Aba",
                 "Abarna",
